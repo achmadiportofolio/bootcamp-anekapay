@@ -92,14 +92,20 @@ function run() {
     insDisctionary.add('hair', 'rambut', 'en-id')
     insDisctionary.add('leg', 'kaki', 'en-id')
     insDisctionary.add('hidung', 'noose', 'en-id')
+    insDisctionary.add('kotak', 'box', 'id-en')
+    console.log(insDisctionary.dictionaries)
     // console.log(insDisctionary.get('tangan'))
     // console.log(insDisctionary.get('kucing'))
     // console.log(insDisctionary.get('kaki'))
     // console.log(insDisctionary.get('leg', 'en-id'))
     // console.log(insDisctionary.get('leg', 'id-en'))
     // console.log(insDisctionary.get('kaki', 'id-en'))
-    console.log(insDisctionary.get('tangan', 'id-en'))
-    console.log(insDisctionary.get('tangan'))
+    // console.log(insDisctionary.get('tangan'))
+    // console.log(insDisctionary.get('tangan'))
+    // console.log(insDisctionary.get('hair'))
+    console.log(insDisctionary.get('kotak', 'en-id'))
+    // console.log(insDisctionary.get('box', 'id-en'))
+    console.log(insDisctionary.get('box', 'id-en'))
     // console.log(insDisctionary.get('kaki', 'id-en'))
 
 }
@@ -137,9 +143,9 @@ class myDictionary {
                     var found_word = this.dictionaries.get(yourWord).split('-');
                     if (found_word[1]=='id') {
                         var keyword_result = found_word[0];
-                        return 'result :' + keyword_result;
+                        return 'Hasil :' + keyword_result;
                     }
-                    return result + ' dalam bahasa Indonesia' 
+                    return result + ' dalam Bahasa Inggris' 
                 }
                 return result;
             }else if (current_flow_disc == 'en-id') {
@@ -153,7 +159,7 @@ class myDictionary {
                         var keyword_result = found_word[0];
                         return 'result :' + keyword_result;
                     }
-                    return result + ' in English' 
+                    return result + ' in Bahasa' 
 
                 }
                 return result;
@@ -171,7 +177,6 @@ class myDictionary {
         return result;
 
     }
-    // return  `${param1}, ${param2}`
 
 
 }
