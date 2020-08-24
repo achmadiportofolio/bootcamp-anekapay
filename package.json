@@ -1,0 +1,15 @@
+{
+    "name": "bootcamp",
+    "version": "1.0.0",
+    "description": "bootcamp nodejs aneka-pay ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"init tas \"",
+        "dev": "nodemon index.js"
+    },
+    "keywords": [
+        "nodejs"
+    ],
+    "author": "achmadi",
+    "license": "ISC"
+}
