@@ -92,10 +92,15 @@ function run() {
     insDisctionary.add('hair', 'rambut', 'en-id')
     insDisctionary.add('leg', 'kaki', 'en-id')
     insDisctionary.add('hidung', 'noose', 'en-id')
+    // console.log(insDisctionary.get('tangan'))
+    // console.log(insDisctionary.get('kucing'))
+    // console.log(insDisctionary.get('kaki'))
+    // console.log(insDisctionary.get('leg', 'en-id'))
+    // console.log(insDisctionary.get('leg', 'id-en'))
+    // console.log(insDisctionary.get('kaki', 'id-en'))
+    console.log(insDisctionary.get('tangan', 'id-en'))
     console.log(insDisctionary.get('tangan'))
-    console.log(insDisctionary.get('kucing'))
-    console.log(insDisctionary.get('kaki'))
-    console.log(insDisctionary.get('buku', 'id-en'))
+    // console.log(insDisctionary.get('kaki', 'id-en'))
 
 }
 
@@ -107,7 +112,8 @@ $CalculateMatrix = function (param1, param2) {
 class myDictionary {
 
     constructor() {
-        this.flow_dic = 'en-id';
+        // this.flow_dic = 'en-id';
+        this.flow_dic = null;
         this.dictionaries = new Map([
             ["kucing", "cat-eng"],
             ["cat", "kucing-id"]
@@ -125,11 +131,29 @@ class myDictionary {
         if (yourWord) {
             var current_flow_disc = flow_dic || this.flow_dic;
             if (current_flow_disc == 'id-en') {
+                result = 'Kata tidak di temukan '
+                if (this.dictionaries.has(yourWord)) {
+                    console.log('Menterjemahkan kata :' + yourWord);
+                    var found_word = this.dictionaries.get(yourWord).split('-');
+                    if (found_word[1]=='id') {
+                        var keyword_result = found_word[0];
+                        return 'result :' + keyword_result;
+                    }
+                    return result + ' dalam bahasa Indonesia' 
+                }
+                return result;
+            }else if (current_flow_disc == 'en-id') {
                 result = 'uknown word'
                 if (this.dictionaries.has(yourWord)) {
-                    console.log('Menterjemahkan kata ' + yourWord);
-                    var keyword_result = this.dictionaries.get(yourWord).split('-')[0]
-                    return 'result :' + keyword_result;
+                    console.log('Translating word :' + yourWord);
+                    // var keyword_result = this.dictionaries.get(yourWord).split('-')[0]
+                    // return 'hasil :' + keyword_result;
+                    var found_word = this.dictionaries.get(yourWord).split('-');
+                    if (found_word[1] == 'en') {
+                        var keyword_result = found_word[0];
+                        return 'result :' + keyword_result;
+                    }
+                    return result + ' in English' 
 
                 }
                 return result;
@@ -137,7 +161,7 @@ class myDictionary {
                 result = 'kata tidk di kenali ';
                 // console.log(this.dictionaries)
                 if (this.dictionaries.has(yourWord)) {
-                    console.log('Menterjemahkan kata ' + yourWord);
+                    console.log('Automatic detect lang : ' + yourWord);
                     var keyword_result = this.dictionaries.get(yourWord).split('-')[0]
                     return 'hasil :' + keyword_result;
                 }

@@ -1,5 +1,6 @@
 const modules = [
-    require('./source-code-praktik/M01/H02/index')
+    require('./source-code-praktik/M01/H01/index'),
+    require('./source-code-praktik/M01/H02/index'),
 ]
 // const h1 = require('./source-code-praktik/H01/index')
 
